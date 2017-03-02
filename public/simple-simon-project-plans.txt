@@ -1,0 +1,131 @@
+Simple Simon Game Plans
+
+Rules:
+
+	Color Sequence Game, progressively getting harder as rounds go on
+	You must enter the color sequence in CORRECT order each time
+		if you do, then one more color is added onto the sequence
+		if you don't, then game over
+	Color sequence should be RANDOM each round
+
+Pseudo-Code:
+
+	globals:
+		var colorOrder = "",
+			inputOrder = "",
+			roundNumber = "",
+			red = 1,
+			yellow = 2,
+			blue = 3,
+			green = 4;
+
+	colors should be represented by a number in order to better track sequence/order
+		everytime a new number is generated, it is appended onto the colorOrder string
+
+	buttons should be wired up to each color and then output the number represented by the color
+		example: if red is pressed, 1 is appended onto the inputOrder string
+
+	after each round, the colorOrder string should be compared to the inputOrder string
+		if they match, another color is added onto the colorOrder string
+		if they don't match, game over, colorOrder and inputOrder is reset back to an empty string
+
+	Functions:
+		- startGame function that is wired to a click event listener button that generates the first randomColor and appends it to the colorOrder string
+		- Create random color order each time by using Math.floor(Math.random() * 4) + 1
+		- randomColor is appended onto the colorOrder string each round
+		- after each round, colorOrder is compared to inputOrder
+			if/else statement needed for comparison
+			example:
+				if (colorOrder == inputOrder) {
+					append next new randomColor to colorOrder string
+				} else {
+					reset game using the gameOver function (this shouldrun the gameReset function)
+				}
+		- function that changes the css class of each color, one by one, starting at the beginning of the colorOrder string with an appropriate amount of time between each css display class activated
+		- gameRound function that increases the number of rounds by one after each round
+		- gameOver function that resets the game, and the colorOrder/inputOrder strings
+			this should run a gameReset function that sets everything back to the start and empties out all the strings
+				gameReset function should also display a message/alert/animation that displays that inputOrder !== colorOrder
+
+	Event Listeners: 
+		- one click event listener needed for each color (red, yellow, blue, green)
+		- a click event listener needed to start the game and run the startGame function
+	
+Extra Features:
+	
+	- limit the time allowed between choosing the next correct color in the sequence
+		easy = unlimited time to choose the next correct color in the sequence
+		medium = 10 seconds to choose the next correct color in the sequence
+		hard = 3 seconds to choose the next correct color in the sequence
+		kappa = 1 second to choose the next correct color in the sequence
+	- change the order of the colors after a specific amount of rounds
+		easy = never change the order of the colors
+		medium = change the order of the colors every 10 rounds
+		hard = change the order of the colors every 5 rounds
+		kappa = change the order of the colors every round
+	- different color schemes (for difficulty or just for looks)
+		for difficulty levels:
+			default = red, yellow, blue, green
+			hard = red, orange, yellow, pink
+			kappa = grayscale
+		for looks:
+			color blindness = hues of color easier to suit color blindness
+			bluescale = different shades of blue
+			redscale = different shades of red
+
+Styling:
+	
+	- start game button circlular located in the dead center of the page
+	- red
+		position = top left
+		colors:
+			active = #C12517 (saturation 88, brightness 76)
+			default = #C16C64 (saturation 48, brightness 76)
+
+		shape:
+			border-radius: 100px 0px 0px 0px;
+			border: 3px solid #363638;
+	- yellow
+		position = top right
+		colors:
+			active = #D8BC1A
+			default = #D8C970
+		shape:
+			border-radius: 0px 100px 0px 0px;
+			border: 3px solid #363638;
+	- blue 
+		position = bottom right
+		colors:
+			active = #174DC1
+			default = #6884C1
+		shape:
+			border-radius: 0px 0px 100px 0px;
+			border: 3px solid #363638;
+			width: 
+	- green 
+		position = bottom left
+		colors:
+			active = #199E12
+			default = #5F9E5B
+		shape: 
+			border-radius: 0px 0px 0px 100px;
+			border: 3px solid #363638;
+	-black
+		color: #363638
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

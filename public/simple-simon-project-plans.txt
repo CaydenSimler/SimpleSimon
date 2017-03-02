@@ -14,6 +14,7 @@ Pseudo-Code:
 		var colorOrder = "",
 			inputOrder = "",
 			roundNumber = "",
+			randomNumber = "",
 			red = 1,
 			yellow = 2,
 			blue = 3,

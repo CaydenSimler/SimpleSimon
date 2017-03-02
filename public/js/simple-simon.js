@@ -1,6 +1,21 @@
 "use strict";
 
+var colorOrder = [],
+	inputOrder = [],
+	roundNumber = [],
+	randomNumber = [];
 
+
+function randomNumGen(){
+	randomNumber = Math.floor(Math.random() * 4) + 1;
+	
+	colorOrder.push(randomNumber);
+	console.log(colorOrder);
+}
+
+for (var i = 0; i <=5; i++) {
+	randomNumGen();
+}
 
 $(".greenbox").click(function(){
 	$(".greenbox").css("background-color", "#1C7715");	

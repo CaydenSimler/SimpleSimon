@@ -39,10 +39,34 @@ function randomNumGen(){
 	}
 }
 
+function convertString(){
+	colorOrder = colorOrder.split(",");
+	inputOrder = inputOrder.split(",");
 
-for (var i = 0; i <=10; i++) {
-	randomNumGen();
+	console.log(colorOrder);
+	console.log(inputOrder);
 }
+
+function runRound(){
+	randomNumGen()
+
+	colorOrder = colorOrder.join();
+	inputOrder = inputOrder.join()
+	console.log(colorOrder);
+	console.log(inputOrder);
+
+	if (inputOrder == colorOrder) {
+		console.log("success");
+	} else {
+		console.log("fail");
+	}
+
+	convertString();
+}
+
+$(".title").click(function(){
+	runRound()
+})
 
 // After each round:
 // 	colorOrder has to be split into a string

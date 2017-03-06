@@ -35,7 +35,7 @@ function increment(){
 function checkColor(color){
 
 		if (color == 1) {
-			$(".redbox").css("background-color", "#A0291E");	
+			$(".redbox").css("background-color", "#A0291E");
 					
 			setTimeout(function(){
 				$(".redbox").css("background-color", "#C16C64");
@@ -73,6 +73,11 @@ function runGame(){
 
 }
 
+$(".title").click(function(){
+	runGame()
+});
+
+
 // Changes the colorOrder and inputOrder into strings that can be compared
 function toString(){
 	colorOrder = colorOrder.join();
@@ -87,7 +92,8 @@ function convertString(){
 }
 
 // Clears the inputOrder, colorOrder, and roundNumber that way the game can have a full refresh before it runs
-$(".startButton").click(function(){
+$(".start").click(function(){
+	$(".start").removeClass("startButton").html("");
 	$(".highScoreNumber").html(roundNumber + 1);
 	roundNumber = -1;
 	$(".roundNumber").html(roundNumber - roundNumber);
@@ -98,9 +104,6 @@ $(".startButton").click(function(){
 	runGame();
 })
 
-$(".title").click(function(){
-	runGame();
-});
 
 // All four of these buttons are for basic functionality of how each input as added onto the inputOrder array
 // The corresponding number to each button is appended onto the inputOrder array

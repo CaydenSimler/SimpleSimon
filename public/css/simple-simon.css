@@ -51,11 +51,12 @@
 	height: 120px;
 	width: 120px;
 	background-color: #363638;
-	border-radius: 100%;
+	border-radius: 20px;
 	color: #C7C7CC;
 	position: absolute;
-	left: 44.5%;
-	top: 40.5%;
+	left: 44.45%;
+	top: 40.6%;
+	transform:rotate(45deg);
 }
 
 

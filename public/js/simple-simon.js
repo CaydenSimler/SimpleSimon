@@ -64,8 +64,12 @@ function runRound(){
 	convertString();
 }
 
-$(".title").click(function(){
-	runRound()
+$(".startButton").click(function(){
+	console.log("test start");
+	colorOrder = [];
+	inputOrder = [];
+	console.log(colorOrder);
+	console.log(inputOrder);
 })
 
 // After each round:

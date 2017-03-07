@@ -103,6 +103,10 @@ function checkColor(color) {
 	increment();
 };
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// When each button is clicked, the individual function is fired. For example, if the red button is clicked
+// the redFlash function will fire
+//////////////////////////////////
 function redFlash(){
 	$(".redbox").css("background-color", "#A0291E");
 					
@@ -164,7 +168,9 @@ $(".start").click(function(){
 	round();
 });
 
+/////////////////////////////////////////////////////////////////////////////
 // A fail function that runs when the inputOrder doesn't equal the colorOrder
+/////////////////////////////////////////////////////////////////////////////
 function gameFail(){
 	alert("colorOrder != inputOrder");
 	$(".highScoreNumber").html(roundNumber + 1);
@@ -174,7 +180,7 @@ function gameFail(){
 	inputOrder = [];
 
 	/////////////////////////////////////////////
-	// Flashes the color that was the wrong input
+	// Flashes the color that was the incorrect input
 	/////////////////////////////////////////////
 	for (var i = 0; i <=3; i++){
 		setTimeout(function(){
@@ -189,21 +195,15 @@ function gameFail(){
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // All four of these buttons are for basic functionality of how each input as added onto the inputOrder array
 // The corresponding number to each button is appended onto the inputOrder array
-// 1 = Red, 2 = Yellow, etc...
-// The default color changes to a darker shade to indicate that the button has been pushed
-// After half a second, the button changes back to the lighter shade
-////////////////////////////////////////////////////////////////////
+// 1 = Red, 2 = Yellow, 3 = Blue, 4 = Green
+///////////////////////////////////////////
 $(".redbox").click(function(){
 
 	inputOrder.push("1");
 	checkLength();
 	console.log(inputOrder);
 
-	$(".redbox").css("background-color", "#A0291E");	
-		
-	setTimeout(function(){
-		$(".redbox").css("background-color", "#C16C64");
-	}, 500);	
+	redFlash();	
 });
 
 $(".yellowbox").click(function(){
@@ -212,11 +212,7 @@ $(".yellowbox").click(function(){
 	checkLength();
 	console.log(inputOrder);
 
-	$(".yellowbox").css("background-color", "#D8BC1A");	
-		
-	setTimeout(function(){
-		$(".yellowbox").css("background-color", "#D8C970");
-	}, 500);
+	yellowFlash();
 });
 
 $(".bluebox").click(function(){
@@ -225,11 +221,7 @@ $(".bluebox").click(function(){
 	checkLength();
 	console.log(inputOrder);
 
-	$(".bluebox").css("background-color", "#174DC1");	
-		
-	setTimeout(function(){
-		$(".bluebox").css("background-color", "#6884C1");
-	}, 500);
+	blueFlash();
 });
 
 $(".greenbox").click(function(){
@@ -238,10 +230,5 @@ $(".greenbox").click(function(){
 	checkLength();
 	console.log(inputOrder);
 
-	$(".greenbox").css("background-color", "#1C7715");	
-
-	setTimeout(function(){
-		$(".greenbox").css("background-color", "#5F9E5B");
-	}, 500);
-
+	greenFlash();
 });

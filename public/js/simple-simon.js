@@ -6,6 +6,28 @@ var colorOrder = [],
 	inputSequence = 0,
 	index = 0;
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Clears the inputOrder, colorOrder, and roundNumber that way the game can have a full refresh before it runs
+// and then runs the round function to start the game over
+//////////////////////////////////////////////////////////
+$(".start").click(function(){
+	colorOrder = [];
+	inputOrder = [];
+	roundNumber = -1;
+	$(".roundNumber").html(1)
+	round();
+});
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Runs the next round by adding on a new color to colorOrder, adds a round to the counter, and runs the increment
+// command in order to display each color in order of index
+///////////////////////////////////////////////////////////
+function round() {
+	randomNumGen()
+	addRound();
+	increment();
+}
+
 //////////////////////////////////////////////////////////////////////////////////
 // Generate a random number between 1 and 4 then adds it onto the colorOrder array
 //////////////////////////////////////////////////////////////////////////////////
@@ -24,7 +46,6 @@ function addRound(){
 	$(".roundNumber").html(roundNumber + 1);
 }
 
-
 ///////////////////////////////////////////////////////////////////////
 // Calls the checkColor function for each index in the colorOrder array
 ///////////////////////////////////////////////////////////////////////
@@ -35,16 +56,6 @@ function increment(){
 
 		}
 	}, 800);
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Runs the next round by adding on a new color to colorOrder, adds a round to the counter, and runs the increment
-// command in order to display each color in order of index
-///////////////////////////////////////////////////////////
-function round() {
-	randomNumGen()
-	addRound();
-	increment();
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -103,42 +114,6 @@ function checkColor(color) {
 	increment();
 };
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
-// When each button is clicked, the individual function is fired. For example, if the red button is clicked
-// the redFlash function will fire
-//////////////////////////////////
-function redFlash(){
-	$(".redbox").css("background-color", "#A0291E");
-					
-	setTimeout(function(){
-		$(".redbox").css("background-color", "#C16C64");
-	}, 400);
-}
-
-function yellowFlash(){
-	$(".yellowbox").css("background-color", "#D8BC1A");	
-					
-	setTimeout(function(){
-		$(".yellowbox").css("background-color", "#D8C970");
-	}, 400);
-}
-
-function blueFlash(){
-	$(".bluebox").css("background-color", "#174DC1");	
-					
-	setTimeout(function(){
-		$(".bluebox").css("background-color", "#6884C1");
-	}, 400);
-}
-
-function greenFlash(){
-	$(".greenbox").css("background-color", "#1C7715");	
-
-	setTimeout(function(){
-		$(".greenbox").css("background-color", "#5F9E5B");
-	}, 400);
-}
-
 //////////////////////////////////////////////////////////////////////////
 // Changes the colorOrder and inputOrder into strings that can be compared
 //////////////////////////////////////////////////////////////////////////
@@ -155,18 +130,6 @@ function toArray(){
 	colorOrder = colorOrder.split(",");
 	inputOrder = inputOrder.split(",");
 }
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Clears the inputOrder, colorOrder, and roundNumber that way the game can have a full refresh before it runs
-// and then runs the round function to start the game over
-//////////////////////////////////////////////////////////
-$(".start").click(function(){
-	colorOrder = [];
-	inputOrder = [];
-	roundNumber = -1;
-	$(".roundNumber").html(1)
-	round();
-});
 
 /////////////////////////////////////////////////////////////////////////////
 // A fail function that runs when the inputOrder doesn't equal the colorOrder
@@ -232,3 +195,39 @@ $(".greenbox").click(function(){
 
 	greenFlash();
 });
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// When each button is clicked, the individual function is fired. For example, if the red button is clicked
+// the redFlash function will fire
+//////////////////////////////////
+function redFlash(){
+	$(".redbox").css("background-color", "#A0291E");
+					
+	setTimeout(function(){
+		$(".redbox").css("background-color", "#C16C64");
+	}, 400);
+}
+
+function yellowFlash(){
+	$(".yellowbox").css("background-color", "#D8BC1A");	
+					
+	setTimeout(function(){
+		$(".yellowbox").css("background-color", "#D8C970");
+	}, 400);
+}
+
+function blueFlash(){
+	$(".bluebox").css("background-color", "#174DC1");	
+					
+	setTimeout(function(){
+		$(".bluebox").css("background-color", "#6884C1");
+	}, 400);
+}
+
+function greenFlash(){
+	$(".greenbox").css("background-color", "#1C7715");	
+
+	setTimeout(function(){
+		$(".greenbox").css("background-color", "#5F9E5B");
+	}, 400);
+}

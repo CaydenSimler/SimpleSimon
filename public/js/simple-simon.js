@@ -139,7 +139,6 @@ function gameFail(){
 	roundNumber = -1;
 	$(".roundNumber").html(roundNumber - roundNumber);
 
-	
 	colorOrder = [];
 	inputOrder = [];
 
@@ -167,22 +166,22 @@ function animateMiddle(){
 	$(".startButton").animate({
 		backgroundColor: "#C16C64",
 		borderColor: "#C16C64"
-	}, 400).animate({
+	}, 350).animate({
 		backgroundColor: "#D8C970",
 		borderColor: "#D8C970"
-	}, 400).animate({
+	}, 350).animate({
 		backgroundColor: "#6884C1",
 		borderColor: "#6884C1"
-	}, 400).animate({
+	}, 350).animate({
 		backgroundColor: "#5F9E5B",
 		borderColor: "#5F9E5B"
-	}, 400).animate({
+	}, 350).animate({
 		backgroundColor: "#363638",
 		borderTopColor: "#5F9E5B",
 		borderBottomColor: "#C16C64",
 		borderLeftColor: "#6884C1",
 		borderRightColor: "#D8C970"
-	}, 400);
+	}, 350);
 }
 
 //////////////////////////////////

@@ -145,14 +145,12 @@ function gameFail(){
 	/////////////////////////////////////////////
 	// Flashes the color that was the incorrect input
 	/////////////////////////////////////////////
-	for (var i = 0; i <=3; i++){
-		setTimeout(function(){
-			redFlash();
-			yellowFlash();
-			blueFlash();
-			greenFlash();		
-		}, 500)
-	}
+	setTimeout(function(){
+		redFlash();
+		yellowFlash();
+		blueFlash();
+		greenFlash();		
+	}, 500);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -161,7 +159,6 @@ function gameFail(){
 // 1 = Red, 2 = Yellow, 3 = Blue, 4 = Green
 ///////////////////////////////////////////
 $(".redbox").click(function(){
-
 	inputOrder.push("1");
 	checkLength();
 	console.log(inputOrder);
@@ -170,7 +167,6 @@ $(".redbox").click(function(){
 });
 
 $(".yellowbox").click(function(){
-
 	inputOrder.push("2");
 	checkLength();
 	console.log(inputOrder);
@@ -179,7 +175,6 @@ $(".yellowbox").click(function(){
 });
 
 $(".bluebox").click(function(){
-
 	inputOrder.push("3");
 	checkLength();
 	console.log(inputOrder);
@@ -188,7 +183,6 @@ $(".bluebox").click(function(){
 });
 
 $(".greenbox").click(function(){
-
 	inputOrder.push("4");
 	checkLength();
 	console.log(inputOrder);

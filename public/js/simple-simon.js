@@ -23,7 +23,7 @@ $(".start").click(function(){
 // Runs the next round by adding on a new color to colorOrder, adds a round to the counter, and runs the increment
 // command in order to display each color in order of index
 ///////////////////////////////////////////////////////////
-function round() {
+function round(){
 	randomNumGen()
 	addRound();
 	increment();
@@ -51,7 +51,7 @@ function addRound(){
 ///////////////////////////////////////////////////////////////////////
 function increment(){
 	setTimeout(function(){
-		if (index < colorOrder.length) {
+		if (index < colorOrder.length){
 			checkColor(colorOrder[index]);
 
 		}
@@ -61,8 +61,8 @@ function increment(){
 ///////////////////////////////////////////////////////////////////
 // A function that compares the length of inputOrder and colorOrder
 ///////////////////////////////////////////////////////////////////
-function checkLength() {
-	if (inputOrder.length == colorOrder.length) {
+function checkLength(){
+	if (inputOrder.length == colorOrder.length){
 		///////////////////////////////////////////////////////////////////////////////////
 		// Converts both the inputOrder and colorOrder into strings so they can be compared
 		///////////////////////////////////////////////////////////////////////////////////
@@ -98,7 +98,7 @@ function checkOrder(){
 ///////////////////////////////////////////////////////////////////////
 // Checks which color is at the specified index in the colorOrder array
 ///////////////////////////////////////////////////////////////////////
-function checkColor(color) {
+function checkColor(color){
 
 	if (color == 1) {
 		redFlash();
@@ -146,7 +146,7 @@ function gameFail(){
 	// Flashes the color that was the incorrect input then flashes all the colors five times
 	////////////////////////////////////////////////////////////////////////////////////////
 	var i = 0, 
-    interval = setInterval(function() {
+    interval = setInterval(function(){
         flashAll();
         i++;
         if(i >= 5) clearInterval(interval); // stop it
@@ -202,7 +202,6 @@ function flashAll(){
 $(".redbox").click(function(){
 	inputOrder.push("1");
 	checkLength();
-	console.log(inputOrder);
 
 	redFlash();	
 });
@@ -210,7 +209,6 @@ $(".redbox").click(function(){
 $(".yellowbox").click(function(){
 	inputOrder.push("2");
 	checkLength();
-	console.log(inputOrder);
 
 	yellowFlash();
 });
@@ -218,7 +216,6 @@ $(".yellowbox").click(function(){
 $(".bluebox").click(function(){
 	inputOrder.push("3");
 	checkLength();
-	console.log(inputOrder);
 
 	blueFlash();
 });
@@ -226,7 +223,6 @@ $(".bluebox").click(function(){
 $(".greenbox").click(function(){
 	inputOrder.push("4");
 	checkLength();
-	console.log(inputOrder);
 
 	greenFlash();
 });

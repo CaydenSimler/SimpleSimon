@@ -3,6 +3,7 @@
 var colorOrder = [],
 	inputOrder = [],
 	roundNumber = -1,
+	inputSequence = 0,
 	index = 0;
 
 // Generate a random number between 1 and 4 then adds it onto the colorOrder array
@@ -31,8 +32,28 @@ function increment(){
 	}, 800);
 }
 
+// Runs the next round by adding on a 
+function round() {
+	randomNumGen()
+	addRound();
+	increment();
+}
+
+function checkLength() {
+	if (inputOrder.length == colorOrder.length) {
+		console.log("fired length checker");
+		toString();
+		console.log(colorOrder);
+		console.log(inputOrder);
+	} else {
+		inputSequence++
+		console.log("sequence position: " + inputSequence);
+		console.log("color order length: " + colorOrder.length);
+	}
+}
+
 // Checks which color is at the specified index in the colorOrder array
-function checkColor(color){
+function checkColor(color) {
 
 		if (color == 1) {
 			$(".redbox").css("background-color", "#A0291E");
@@ -65,18 +86,6 @@ function checkColor(color){
 		increment();
 };
 
-// Starts the game
-function runGame(){
-	randomNumGen();
-	addRound();
-	increment();
-
-}
-
-$(".title").click(function(){
-	runGame()
-});
-
 
 // Changes the colorOrder and inputOrder into strings that can be compared
 function toString(){
@@ -86,14 +95,14 @@ function toString(){
 
 // Converts the string back into an array that can then be modified after each color is added to the sequence
 // This needs to be run after each individual round in order to add more items onto each array
-function convertString(){
+function toArray(){
 	colorOrder = colorOrder.split(",");
 	inputOrder = inputOrder.split(",");
 }
 
 // Clears the inputOrder, colorOrder, and roundNumber that way the game can have a full refresh before it runs
 $(".start").click(function(){
-	$(".start").removeClass("startButton").html("");
+	// $(".start").removeClass("startButton").html("");
 	$(".highScoreNumber").html(roundNumber + 1);
 	roundNumber = -1;
 	$(".roundNumber").html(roundNumber - roundNumber);
@@ -101,7 +110,7 @@ $(".start").click(function(){
 	inputOrder = [];
 
 	// Fires the function to start the game at the first round
-	runGame();
+	round();
 })
 
 
@@ -114,6 +123,7 @@ $(".start").click(function(){
 $(".redbox").click(function(){
 
 	inputOrder.push("1");
+	checkLength();
 	console.log(inputOrder);
 
 	$(".redbox").css("background-color", "#A0291E");	
@@ -126,6 +136,7 @@ $(".redbox").click(function(){
 $(".yellowbox").click(function(){
 
 	inputOrder.push("2");
+	checkLength();
 	console.log(inputOrder);
 
 	$(".yellowbox").css("background-color", "#D8BC1A");	
@@ -138,6 +149,7 @@ $(".yellowbox").click(function(){
 $(".bluebox").click(function(){
 
 	inputOrder.push("3");
+	checkLength();
 	console.log(inputOrder);
 
 	$(".bluebox").css("background-color", "#174DC1");	
@@ -150,6 +162,7 @@ $(".bluebox").click(function(){
 $(".greenbox").click(function(){
 
 	inputOrder.push("4");
+	checkLength();
 	console.log(inputOrder);
 
 	$(".greenbox").css("background-color", "#1C7715");	

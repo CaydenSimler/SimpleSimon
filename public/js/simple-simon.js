@@ -18,6 +18,7 @@ $("document").ready(function(){
 		roundNumber = -1;
 		$(".roundNumber").html(1);
 		$(".start").html("");
+		$(".cursor").removeClass("testOne");
 		round();
 	});
 
@@ -145,7 +146,10 @@ $("document").ready(function(){
 		////////////////////////////////////////////////////////////////////////////////////////
 		var i = 0, 
 	    interval = setInterval(function(){
-	        flashAll();
+	        setTimeout(function(){
+	        	flashAll();	
+	        }, 200)
+
 	        i++;
 	        if(i >= 5) clearInterval(interval);
 	    }, 250);
@@ -163,16 +167,16 @@ $("document").ready(function(){
 	function animateMiddle(){
 		$(".startButton").animate({
 			backgroundColor: "#C16C64",
-			borderColor: "#C16C64"
+			borderColor: "#363638"
 		}, 350).animate({
 			backgroundColor: "#D8C970",
-			borderColor: "#D8C970"
+			borderColor: "#363638"
 		}, 350).animate({
 			backgroundColor: "#6884C1",
-			borderColor: "#6884C1"
+			borderColor: "#363638"
 		}, 350).animate({
 			backgroundColor: "#5F9E5B",
-			borderColor: "#5F9E5B"
+			borderColor: "#363638"
 		}, 350).animate({
 			backgroundColor: "#363638",
 			borderTopColor: "#5F9E5B",

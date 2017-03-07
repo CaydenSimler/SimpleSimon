@@ -14,7 +14,8 @@ $(".start").click(function(){
 	colorOrder = [];
 	inputOrder = [];
 	roundNumber = -1;
-	$(".roundNumber").html(1)
+	$(".roundNumber").html(1);
+	$(".start").html("");
 	round();
 });
 
@@ -135,22 +136,37 @@ function toArray(){
 // A fail function that runs when the inputOrder doesn't equal the colorOrder
 /////////////////////////////////////////////////////////////////////////////
 function gameFail(){
-	alert("colorOrder != inputOrder");
 	$(".highScoreNumber").html(roundNumber + 1);
 	roundNumber = -1;
 	$(".roundNumber").html(roundNumber - roundNumber);
+
+	
 	colorOrder = [];
 	inputOrder = [];
 
-	/////////////////////////////////////////////
-	// Flashes the color that was the incorrect input
-	/////////////////////////////////////////////
-	setTimeout(function(){
-		redFlash();
-		yellowFlash();
-		blueFlash();
-		greenFlash();		
-	}, 500);
+	////////////////////////////////////////////////////////////////////////////////////////
+	// Flashes the color that was the incorrect input then flashes all the colors five times
+	////////////////////////////////////////////////////////////////////////////////////////
+	var i = 0, 
+    interval = setInterval(function() {
+        flashAll();
+        i++;
+        if(i >= 5) clearInterval(interval); // stop it
+    }, 250);
+
+    setTimeout(function(){
+    	$(".start").html("play");
+    }, 1750)
+}
+
+//////////////////////////////////
+// Flashes all the colors together
+//////////////////////////////////
+function flashAll(){
+	redFlash();
+	yellowFlash();
+	blueFlash();
+	greenFlash();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////

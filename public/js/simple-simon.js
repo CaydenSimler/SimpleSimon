@@ -74,10 +74,12 @@ function checkOrder(){
 
 		inputSequence = 0;
 		inputOrder = [];
-		round();
+		setTimeout(function(){
+			round();	
+		}, 500);
 
 	} else {
-		alert("colorOrder != inputOrder");
+		gameFail();
 	}
 	
 }
@@ -87,36 +89,51 @@ function checkOrder(){
 ///////////////////////////////////////////////////////////////////////
 function checkColor(color) {
 
-		if (color == 1) {
-			$(".redbox").css("background-color", "#A0291E");
-					
-			setTimeout(function(){
-				$(".redbox").css("background-color", "#C16C64");
-			}, 400);	
-		} else if (color == 2) {
-			$(".yellowbox").css("background-color", "#D8BC1A");	
-					
-			setTimeout(function(){
-				$(".yellowbox").css("background-color", "#D8C970");
-			}, 400);
-		} else if (color == 3) {
-			$(".bluebox").css("background-color", "#174DC1");	
-					
-			setTimeout(function(){
-				$(".bluebox").css("background-color", "#6884C1");
-			}, 400);	
-		} else if (color == 4) {
-			$(".greenbox").css("background-color", "#1C7715");	
+	if (color == 1) {
+		redFlash();
+	} else if (color == 2) {
+		yellowFlash();
+	} else if (color == 3) {
+		blueFlash();
+	} else if (color == 4) {
+		greenFlash();
+	}
 
-			setTimeout(function(){
-				$(".greenbox").css("background-color", "#5F9E5B");
-			}, 400);
-		}
-
-		index++;
-
-		increment();
+	index++;
+	increment();
 };
+
+function redFlash(){
+	$(".redbox").css("background-color", "#A0291E");
+					
+	setTimeout(function(){
+		$(".redbox").css("background-color", "#C16C64");
+	}, 400);
+}
+
+function yellowFlash(){
+	$(".yellowbox").css("background-color", "#D8BC1A");	
+					
+	setTimeout(function(){
+		$(".yellowbox").css("background-color", "#D8C970");
+	}, 400);
+}
+
+function blueFlash(){
+	$(".bluebox").css("background-color", "#174DC1");	
+					
+	setTimeout(function(){
+		$(".bluebox").css("background-color", "#6884C1");
+	}, 400);
+}
+
+function greenFlash(){
+	$(".greenbox").css("background-color", "#1C7715");	
+
+	setTimeout(function(){
+		$(".greenbox").css("background-color", "#5F9E5B");
+	}, 400);
+}
 
 //////////////////////////////////////////////////////////////////////////
 // Changes the colorOrder and inputOrder into strings that can be compared
@@ -137,20 +154,37 @@ function toArray(){
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Clears the inputOrder, colorOrder, and roundNumber that way the game can have a full refresh before it runs
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// and then runs the round function to start the game over
+//////////////////////////////////////////////////////////
 $(".start").click(function(){
-	//////////////////////////////////////////////////
-	// Resets both the inputOrder and colorOrder array
-	//////////////////////////////////////////////////
 	colorOrder = [];
 	inputOrder = [];
-	//////////////////////////////////////////////////////////
-	// Fires the function to start the game at the first round
-	//////////////////////////////////////////////////////////
+	roundNumber = -1;
+	$(".roundNumber").html(1)
 	round();
 });
 
+// A fail function that runs when the inputOrder doesn't equal the colorOrder
+function gameFail(){
+	alert("colorOrder != inputOrder");
+	$(".highScoreNumber").html(roundNumber + 1);
+	roundNumber = -1;
+	$(".roundNumber").html(roundNumber - roundNumber);
+	colorOrder = [];
+	inputOrder = [];
 
+	/////////////////////////////////////////////
+	// Flashes the color that was the wrong input
+	/////////////////////////////////////////////
+	for (var i = 0; i <=3; i++){
+		setTimeout(function(){
+			redFlash();
+			yellowFlash();
+			blueFlash();
+			greenFlash();		
+		}, 500)
+	}
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // All four of these buttons are for basic functionality of how each input as added onto the inputOrder array

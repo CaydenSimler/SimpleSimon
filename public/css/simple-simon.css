@@ -1,3 +1,9 @@
+body {
+	font-family: 'Gloria Hallelujah', cursive;
+	background-image: url("../playground.jpg");
+	background-size: 100%;
+}
+
 .title {
 	text-align: center;
 	font-size: 75px;
@@ -16,7 +22,7 @@
 .redbox {
 	width: 200px;
 	height: 200px;
-	border-radius: 25px 75px 25px 0px;
+	border-radius: 5px 75px 5px 0px;
 	border: 3px solid #363638;
 	background-color: #C16C64;
 	margin: 3px;
@@ -25,7 +31,7 @@
 .yellowbox {
 	width: 200px;
 	height: 200px;
-	border-radius: 75px 25px 0px 25px;
+	border-radius: 75px 5px 0px 5px;
 	border: 3px solid #363638;
 	background-color: #D8C970;
 	margin: 3px;
@@ -34,7 +40,7 @@
 .bluebox {
 	width: 200px;
 	height: 200px;
-	border-radius: 0px 25px 75px 25px;
+	border-radius: 0px 5px 75px 5px;
 	border: 3px solid #363638;
 	background-color: #6884C1;
 	margin: 3px;
@@ -43,7 +49,7 @@
 .greenbox {
 	width: 200px;
 	height: 200px;
-	border-radius: 25px 0px 25px 75px;
+	border-radius: 5px 0px 5px 75px;
 	border: 3px solid #363638;
 	background-color: #5F9E5B;
 	margin: 3px;

@@ -10,8 +10,8 @@ $("document").ready(function(){
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Clears the inputOrder, colorOrder, and roundNumber that way the game can have a full refresh before it runs
-	// and then runs the round function to start the game over
-	//////////////////////////////////////////////////////////
+	// and then runs the round function to start the game at the beginning
+	//////////////////////////////////////////////////////////////////////
 	$(".start").click(function(){
 		colorOrder = [];
 		inputOrder = [];
@@ -21,27 +21,29 @@ $("document").ready(function(){
 		round();
 	});
 
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// Runs the next round by adding on a new color to colorOrder, adds a round to the counter, and runs the increment
-	// command in order to display each color in order of index
-	///////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Runs the next round by adding on a new color to colorOrder, adds a round to the counter, and runs the
+	// increment command in order to display each color in order of its index in the array
+	//////////////////////////////////////////////////////////////////////////////////////
 	function round(){
-		randomNumGen()
+		randomNumGen();
 		addRound();
 		increment();
 	}
 
-	//////////////////////////////////////////////////////////////////////////////////
-	// Generate a random number between 1 and 4 then adds it onto the colorOrder array
-	//////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Generate a random number between 1 and 4 then adds it onto the colorOrder array when the function
+	// is called
+	////////////
 	function randomNumGen(){
 		var randomNumber = (Math.floor(Math.random() * 4) + 1).toString();
 		colorOrder.push(randomNumber);
 	}
 
-	/////////////////////////////
-	// Add 1 to the round counter
-	/////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Add 1 to the round counter and sets the index for the increment function back to zero in order to
+	// display the colors in the colorOrder array from the start
+	////////////////////////////////////////////////////////////
 	function addRound(){
 		roundNumber++;
 		index = 0;
@@ -58,43 +60,6 @@ $("document").ready(function(){
 
 			}
 		}, 800);
-	}
-
-	///////////////////////////////////////////////////////////////////
-	// A function that compares the length of inputOrder and colorOrder
-	///////////////////////////////////////////////////////////////////
-	function checkLength(){
-		if (inputOrder.length == colorOrder.length){
-			///////////////////////////////////////////////////////////////////////////////////
-			// Converts both the inputOrder and colorOrder into strings so they can be compared
-			///////////////////////////////////////////////////////////////////////////////////
-			toString();
-			checkOrder();
-		} else {
-			inputSequence++
-		}
-	}
-
-	////////////////////////////////////////////////////////////////////////
-	// A function that compares the length of both inputOrder and colorOrder
-	////////////////////////////////////////////////////////////////////////
-	function checkOrder(){
-		if (colorOrder == inputOrder){
-			//////////////////////////////////////////////////////////////////////////////////////////////////////
-			// Converts the colorOrder and inputOrder back into arrays so more colors can be added to the sequence
-			//////////////////////////////////////////////////////////////////////////////////////////////////////
-			toArray();
-
-			inputSequence = 0;
-			inputOrder = [];
-			setTimeout(function(){
-				round();	
-			}, 500);
-
-		} else {
-			gameFail();
-		}
-		
 	}
 
 	///////////////////////////////////////////////////////////////////////
@@ -115,6 +80,37 @@ $("document").ready(function(){
 		index++;
 		increment();
 	};
+
+	///////////////////////////////////////////////////////////////////
+	// Compares the length of inputOrder and colorOrder
+	///////////////////////////////////////////////////////////////////
+	function checkLength(){
+		if (inputOrder.length == colorOrder.length){
+			toString();
+			checkOrder();
+		} else {
+			inputSequence++
+		}
+	}
+
+	///////////////////////////////////////////////////////
+	// Compares the order of both inputOrder and colorOrder
+	///////////////////////////////////////////////////////
+	function checkOrder(){
+		if (colorOrder == inputOrder){
+			toArray();
+
+			inputSequence = 0;
+			inputOrder = [];
+			setTimeout(function(){
+				round();	
+			}, 500);
+
+		} else {
+			gameFail();
+		}
+		
+	}
 
 	//////////////////////////////////////////////////////////////////////////
 	// Changes the colorOrder and inputOrder into strings that can be compared
@@ -151,14 +147,14 @@ $("document").ready(function(){
 	    interval = setInterval(function(){
 	        flashAll();
 	        i++;
-	        if(i >= 5) clearInterval(interval); // stop it
+	        if(i >= 5) clearInterval(interval);
 	    }, 250);
 
 	    animateMiddle();
 
 	    setTimeout(function(){
 	    	$(".start").html("play");
-	    }, 1750)
+	    }, 1750);
 	}
 
 	//////////////////////////////////////////////////
@@ -184,16 +180,6 @@ $("document").ready(function(){
 			borderLeftColor: "#6884C1",
 			borderRightColor: "#D8C970"
 		}, 350);
-	}
-
-	//////////////////////////////////
-	// Flashes all the colors together
-	//////////////////////////////////
-	function flashAll(){
-		redFlash();
-		yellowFlash();
-		blueFlash();
-		greenFlash();
 	}
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -263,6 +249,16 @@ $("document").ready(function(){
 		setTimeout(function(){
 			$(".greenbox").css("background-color", "#5F9E5B");
 		}, 400);
+	}
+
+	//////////////////////////////////
+	// Flashes all the colors together
+	//////////////////////////////////
+	function flashAll(){
+		redFlash();
+		yellowFlash();
+		blueFlash();
+		greenFlash();
 	}
 
 });

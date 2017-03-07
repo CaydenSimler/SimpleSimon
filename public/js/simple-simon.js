@@ -18,7 +18,6 @@ $("document").ready(function(){
 		roundNumber = -1;
 		$(".roundNumber").html(1);
 		$(".start").html("");
-		$(".cursor").removeClass("testOne");
 		round();
 	});
 

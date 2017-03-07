@@ -35,7 +35,6 @@ function round() {
 function randomNumGen(){
 	var randomNumber = (Math.floor(Math.random() * 4) + 1).toString();
 	colorOrder.push(randomNumber);
-	console.log(colorOrder);
 }
 
 /////////////////////////////
@@ -154,9 +153,36 @@ function gameFail(){
         if(i >= 5) clearInterval(interval); // stop it
     }, 250);
 
+    animateMiddle();
+
     setTimeout(function(){
     	$(".start").html("play");
     }, 1750)
+}
+
+//////////////////////////////////////////////////
+// Animates the middle button with flashing colors
+//////////////////////////////////////////////////
+function animateMiddle(){
+	$(".startButton").animate({
+		backgroundColor: "#C16C64",
+		borderColor: "#C16C64"
+	}, 400).animate({
+		backgroundColor: "#D8C970",
+		borderColor: "#D8C970"
+	}, 400).animate({
+		backgroundColor: "#6884C1",
+		borderColor: "#6884C1"
+	}, 400).animate({
+		backgroundColor: "#5F9E5B",
+		borderColor: "#5F9E5B"
+	}, 400).animate({
+		backgroundColor: "#363638",
+		borderTopColor: "#5F9E5B",
+		borderBottomColor: "#C16C64",
+		borderLeftColor: "#6884C1",
+		borderRightColor: "#D8C970"
+	}, 400);
 }
 
 //////////////////////////////////

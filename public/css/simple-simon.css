@@ -11,12 +11,14 @@ body {
 	padding-top: 20px;
 	padding-bottom: 30px;
 	font-weight: bold;
+	padding-left: 100px;
 }
 
 .counter {
 	font-size: 50px;
 	color: #363638;
 	text-align: right;
+	padding-top: 15px;
 }
 
 .redbox {
@@ -75,10 +77,6 @@ body {
 
 .rotate {
 	transform:rotate(-45deg);
-}
-
-.test {
-	font-size: 1000px;
 }
 
 .cursor {

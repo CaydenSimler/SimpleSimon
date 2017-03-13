@@ -1,6 +1,6 @@
 body {
 	font-family: 'Gloria Hallelujah', cursive;
-	background-image: url("../playground.jpg");
+	background-image: url("/img/playground.jpg");
 	background-size: 100%;
 }
 
@@ -67,11 +67,9 @@ body {
 	border-top: 4px solid #5F9E5B;
 	border-bottom: 4px solid #C16C64;
 	color: white;
-	position: absolute;
-	left: 48%;
-	top: 48%;
 	text-align: center;
 	padding-top: 32px;
+	margin-top: 30px;
 	font-size: 35px;
 }
 

@@ -1,6 +1,6 @@
 body {
 	font-family: 'Gloria Hallelujah', cursive;
-	background-image: url("/img/playground.jpg");
+	background-image: url("../playground.jpg");
 	background-size: 100%;
 }
 

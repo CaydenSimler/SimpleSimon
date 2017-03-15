@@ -231,7 +231,7 @@ $("document").ready(function(){
 	}
 
 	function yellowFlash(){
-		$(".yellowbox").css("background-color", "#D8BC1A");	
+		$(".yellowbox").css("background-color", "#E8E127");	
 						
 		setTimeout(function(){
 			$(".yellowbox").css("background-color", "#D8C970");
